@@ -68,4 +68,44 @@ union select Id as StudentId, "Mobile" as Type, MobilePhone1 from UNF where Mobi
 union select Id as StudentId, "Mobile" as Type, MobilePhone2 from UNF where MobilePhone2 is not null and MobilePhone2 !='';
 
 /* StudentContactList view */
+drop view if exists StudentContactList;
 create view StudentContactList as select concat(FirstName, ' ', LastName) as Name, group_concat(Number) as Numbers from Phone join Student using(StudentId) group by StudentId;
+
+/* Hobby */
+
+drop table if exists Hobby;
+create table Hobby (
+HobbyId int not null auto_increment primary key,
+Hobby varchar(230)
+) engine=innodb;
+
+insert into Hobby(Hobby) select distinct substring_index(Hobbies, ",", 1) as Hobby from UNF where Hobbies is not null and Hobbies != '' and Hobbies !="Nothing"
+union select distinct trim(substring_index(substring_index(Hobbies, ",", -2), ",", -1)) as Hobby from UNF where Hobbies is not null and Hobbies != '' and Hobbies not like "%Nothing%"
+union select distinct trim(substring_index(Hobbies, ",", -1)) as Hobby from UNF where Hobbies is not null and Hobbies != '' and Hobbies not like "%Nothing%";
+
+/* StudentHobby */
+
+drop table if exists StudentHobby;
+create table StudentHobby (
+StudentId int not null,
+HobbyId int not null
+) engine=innodb;
+
+insert into StudentHobby select distinct Id as StudentId, HobbyId from UNF, Hobby where Hobbies like concat("%",Hobby.Hobby,"%");
+
+/* Grade */
+
+drop table if exists Grade;
+create table Grade (
+StudentId int not null primary key,
+StudentGrade varchar(250) not null
+)engine=innodb;
+
+insert into Grade (StudentId, StudentGrade) select UNF.Id as StudentId, "Awesome" as StudentGrade from UNF where Grade like "%some%"
+union select UNF.Id as StudentId, "First Class" as StudentGrade from UNF where Grade like "%first%"
+union select UNF.Id as StudentId, "Admirable" as StudentGrade from UNF where Grade like "%mirable%"
+union select UNF.Id as StudentId, "Gorgeous" as StudentGrade from UNF where Grade like "%gorg%"
+union select UNF.Id as StudentId, "Best" as StudentGrade from UNF where Grade like "%est%"
+union select UNF.Id as StudentId, "Excellent" as StudentGrade from UNF where Grade like "%lent%"
+union select UNF.Id as StudentId, "Profound" as StudentGrade from UNF where Grade like "%found%";
+
