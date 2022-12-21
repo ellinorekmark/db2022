@@ -1,22 +1,21 @@
-# db2022
-
+```mermaid
 
     Student ||--|{ StudentSchool : enrolls
     School ||--|{ StudentSchool : accepts
     Student ||--|{StudentHobby : has
     StudentHobby ||--|{Hobby : is
-
+    
     StudentSchool {
         int StudentId
         int SchoolId
     }
-
+    
     Student {
         int StudentId
         string FirstName
         string LastName
     }
-
+    
     School {
         int SchoolId
         string Name
@@ -32,5 +31,5 @@
         int HobbyId
         string Hobby
     }
-
-
+    
+```
