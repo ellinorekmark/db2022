@@ -1,5 +1,6 @@
 ```mermaid
-    
+
+erDiagram    
     School ||--|{ StudentSchool : accepts
     Student ||--|{StudentHobby : has
     StudentHobby ||--|{Hobby : is
