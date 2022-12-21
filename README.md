@@ -1,6 +1,5 @@
 ```mermaid
-
-    Student ||--|{ StudentSchool : enrolls
+    
     School ||--|{ StudentSchool : accepts
     Student ||--|{StudentHobby : has
     StudentHobby ||--|{Hobby : is
@@ -31,5 +30,5 @@
         int HobbyId
         string Hobby
     }
-    
+
 ```
