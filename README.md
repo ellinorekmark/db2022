@@ -4,7 +4,7 @@ erDiagram
     School ||--|{ StudentSchool : accepts
     Student || --|{StudentSchool : enrolls
     Student ||--o{StudentHobby : has
-    Hobby ||--||StudentHobby : is
+    StudentHobby ||--||Hobby : is
     Student ||--|{Phone : contact
     
     
@@ -33,6 +33,12 @@ erDiagram
     Hobby {
         int HobbyId
         string Hobby
+    }
+
+    Phone {
+        int StudentId
+        string Type
+        string Number
     }
 
 ```
