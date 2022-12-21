@@ -2,8 +2,9 @@
 
 erDiagram    
     School ||--|{ StudentSchool : accepts
+    Student || --|{StudentSchool : enrolls
     Student ||--|{StudentHobby : has
-    StudentHobby ||--|{Hobby : is
+    Hobby ||--|{StudentHobby : is
     
     StudentSchool {
         int StudentId
