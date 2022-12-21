@@ -3,8 +3,10 @@
 erDiagram    
     School ||--|{ StudentSchool : accepts
     Student || --|{StudentSchool : enrolls
-    Student ||--|{StudentHobby : has
-    Hobby ||--|{StudentHobby : is
+    Student ||--o{StudentHobby : has
+    Hobby ||--||StudentHobby : is
+    Student ||--|{Phone : contact
+    
     
     StudentSchool {
         int StudentId
