@@ -5,7 +5,7 @@ erDiagram
     Student || --|{StudentSchool : enrolls
     Student ||--o{StudentHobby : has
     Student || -- o*Phone : has
-    Phone *|--|| PhoneType : is
+    Phone }|--|| PhoneType : is
     Hobby ||--||StudentHobby : involves
     Student ||--|{Phone : contact
     
