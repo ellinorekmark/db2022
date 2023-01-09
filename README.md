@@ -4,7 +4,7 @@ erDiagram
     School ||--|{ StudentSchool : accepts
     Student || --|{StudentSchool : enrolls
     Student ||--o{StudentHobby : has
-    StudentHobby ||--||Hobby : is
+    Hobby ||--||StudentHobby : involves
     Student ||--|{Phone : contact
     
     
