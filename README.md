@@ -8,6 +8,8 @@ erDiagram
     Phone }|--|| PhoneType : is
     Hobby ||--||StudentHobby : involves
     Student ||--|{Phone : contact
+    Student }o--o{ Grade : has
+    Grade }|--|| GradeType : equals
     
     
     StudentSchool {
