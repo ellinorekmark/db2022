@@ -3,13 +3,13 @@
 erDiagram    
     School ||--|{ StudentSchool : accepts
     Student || --|{StudentSchool : enrolls
-    Student ||--o{StudentHobby : has
+    Student ||--o{StudentHobby : enjoys
     Student || -- o{Phone : has
-    Phone }|--|| PhoneType : is
+    PhoneType ||--|{ PhoneType : is
     Hobby ||--||StudentHobby : involves
     Student ||--|{Phone : contact
-    Student }o--o{ Grade : has
-    Grade }|--|| GradeType : equals
+    Student }o--o{ StudentGrade : has
+    StudentGrade ||--|{ Grade : equals
     
     
     StudentSchool {
@@ -40,9 +40,31 @@ erDiagram
     }
 
     Phone {
+        int PhoneId
         int StudentId
-        string Type
+	int TypeId
         string Number
     }
+
+    PhoneType {
+	int TypeId
+	String Type
+    }
+
+    Grade {
+	int GradeId
+	String GradeName
+    }
+
+    StudentGrade {
+	int StudentId
+	int GradeId
+	int SchoolId
+    }
+
+
+
+
+
 
 ```
