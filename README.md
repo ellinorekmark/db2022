@@ -1,12 +1,12 @@
 ```mermaid
 
 erDiagram    
+    Hobby ||--||StudentHobby : involves
     School ||--|{ StudentSchool : accepts
     Student || --|{StudentSchool : enrolls
     Student ||--o{StudentHobby : enjoys
     Student || -- o{Phone : has
     PhoneType ||--|{ Phone : is
-    Hobby ||--||StudentHobby : involves
     Student ||--|{Phone : contact
     Student }o--o{ StudentGrade : has
     Grade }o--|| StudentGrade : equals
