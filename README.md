@@ -10,6 +10,7 @@ erDiagram
     Student ||--|{Phone : contact
     Student }o--o{ StudentGrade : has
     StudentGrade ||--|{ Grade : equals
+    School ||--|{ StudentGrade : grades
     
     
     StudentSchool {
