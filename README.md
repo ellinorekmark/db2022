@@ -11,8 +11,8 @@
 
 erDiagram    
     Hobby ||--|{ StudentHobby : involves
-    Student ||--o{StudentHobby : enjoys
     PhoneType ||--o{ Phone : is
+    Student ||--o{StudentHobby : enjoys
     Student || --|{StudentSchool : enrolls
     Student || -- o{Phone : has
     School ||--|{ StudentSchool : accepts
