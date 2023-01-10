@@ -9,7 +9,7 @@ erDiagram
     Hobby ||--||StudentHobby : involves
     Student ||--|{Phone : contact
     Student }o--o{ StudentGrade : has
-    StudentGrade ||--|{ Grade : equals
+    Grade }o--|| StudentGrade : equals
     School ||--|{ StudentGrade : grades
     
     
