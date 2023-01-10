@@ -18,8 +18,8 @@ erDiagram
     Student || -- o{Phone : has
     School ||--|{ StudentSchool : accepts
     Student ||--o{ StudentGrade : has
-    Grade ||--|{ StudentGrade : equals
     School ||--|{ StudentGrade : grades
+    Grade ||--|{ StudentGrade : equals
     
     
     StudentSchool {
