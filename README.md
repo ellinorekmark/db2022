@@ -1,18 +1,24 @@
+# Slutuppgift Databaser
+
+### av Ellinor Ekmark
+
+
+
 ## E-R Diagram
 
 
 ```mermaid
 
 erDiagram    
-    Hobby ||--||StudentHobby : involves
+    Hobby ||--|{ StudentHobby : involves
     Student ||--o{StudentHobby : enjoys
-    PhoneType ||--|{ Phone : is
+    PhoneType ||--o{ Phone : is
     Student ||--|{Phone : contact
     Student || --|{StudentSchool : enrolls
     Student || -- o{Phone : has
     School ||--|{ StudentSchool : accepts
-    Student }o--o{ StudentGrade : has
-    Grade }o--|| StudentGrade : equals
+    Student ||--o{ StudentGrade : has
+    Grade ||--|{ StudentGrade : equals
     School ||--|{ StudentGrade : grades
     
     
@@ -67,3 +73,8 @@ erDiagram
     }
 
 ```
+
+
+## Normalisering
+
+docker exec -i iths-mysql mysql -uiths -piths < normalisering.sql
