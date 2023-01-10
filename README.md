@@ -1,3 +1,6 @@
+## E-R Diagram
+
+
 ```mermaid
 
 erDiagram    
@@ -62,10 +65,5 @@ erDiagram
 	int GradeId
 	int SchoolId
     }
-
-
-
-
-
 
 ```
