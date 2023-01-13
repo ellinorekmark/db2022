@@ -21,4 +21,5 @@ public class Constant {
     final static String SQL_DELETE_STUDENT_STUDENTGRADE = "delete from StudentGrade where StudentId = ?";
     final static String SQL_DELETE_STUDENT_STUDENTSCHOOL = "delete from StudentSchool where StudentId = ?";
     final static String SQL_DELETE_STUDENT_PHONE = "delete from Phone where StudentId = ?";
+    final static String SQL_EDIT_FIRSTNAME = "update Student set FirstName = ? where StudentId = ?";
 }

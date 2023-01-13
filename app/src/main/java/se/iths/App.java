@@ -10,15 +10,15 @@ import java.util.HashSet;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class App {
-    String sampleStudent = "Ellllinor Ekmark";
+    static String sampleStudent = "Ellllinor Ekmark";
 
     public static void main(String[] args) {
         StudentDAO sDAO = new StudentDAO();
         Collection<Student> students = new HashSet<>();
-        System.out.println("Hello! Let's start by getting all the students from the database and turning them into objects.");
+        System.out.println("- Hello! Let's start by getting all the students from the database and turning them into objects. -");
         try {
             students = sDAO.findAll();
-            System.out.println("\nSuccess! We have a list of all the students. There were "+ students.size() +" students.");
+            System.out.println("\n- Success! We have a list of all the students. There were "+ students.size() +" students. -");
         } catch (SQLException e) {
             System.out.println("Oops, we were unable to gather all student information: "+ e);
         }
@@ -26,7 +26,7 @@ public class App {
             System.out.println(student.toString());
         }
 
-        System.out.println("Let's take a look at a random student. We'll need a random number, and hopefully we'll find a student with that Id.");
+
         int random = ThreadLocalRandom.current().nextInt(students.size()+1);
         while(!sDAO.checkIfStudentExists(random)){
         random--;
@@ -35,8 +35,35 @@ public class App {
         Student randomStudent = sDAO.findById(random);
         System.out.println(randomStudent.toString());
 
-        System.out.println("That was interesting. Now let's add a student! I'll use myself as an example.");
+        System.out.println("\n\n- That was interesting. Now let's add a student! I'll use myself as an example. -\n");
 
+        Student newStudent = null;
+
+        try {
+            newStudent = sDAO.create(sampleStudent);
+        } catch (SQLException e) {
+            System.out.println("Unable to add student: "+ e);
+        }
+
+        if (newStudent!=null){
+            System.out.println("Student added! \n\n"+ newStudent.toString());
+            System.out.println("\n- Wait a minute, that's not how you spell my name. We'll need to fix that. -\n");
+
+            newStudent.setFirstName("Ellinor");
+            try {
+                newStudent = sDAO.update(newStudent);
+            } catch (SQLException e) {
+                System.out.println("Unable to update student: "+e);
+            }
+            System.out.println(newStudent.toString());
+            System.out.println("\n- There, that's better! -");
+        }
+
+        System.out.println("\n- Well, that was fun. Let's delete myself from the database now. -\n");
+
+        if(sDAO.delete(newStudent)){
+            System.out.println("Student successfully deleted.");
+        }
     }
 
 

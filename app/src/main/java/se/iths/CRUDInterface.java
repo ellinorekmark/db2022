@@ -10,7 +10,7 @@ public interface CRUDInterface<T> {
     public T findById(int id) throws SQLException;
     public T create(T object);
 
-    public T update(T object);
+    public T update(T object) throws SQLException;
 
-    public boolean delete(T object);
+    public boolean delete(T object) ;
 }
