@@ -8,7 +8,7 @@ public class Constant {
     final static String JDBC_PASSWORD = "iths";
 
     final static String SQL_ALL_ARTISTS = "select * from Artist";
-    final static String SQL_ALL_STUDENTS = "select StudentId, concat(FirstName,' ',LastName) as Name from Student";
+    final static String SQL_ALL_STUDENTS = "select StudentId, FirstName, LastName from Student";
 
     final static String SQL_STUDENT_SCHOOLS = "select StudentId, StudentSchool.SchoolId, School, City, GradeName, GradeId from StudentSchool join School using(SchoolId) join StudentGrade using(StudentId) join Grade using(GradeId) where StudentId = ?";
     final static String SQL_STUDENT_PHONES = "select StudentId, Number, Type, PhoneId from Phone join PhoneType using(TypeId) where StudentId = ?";

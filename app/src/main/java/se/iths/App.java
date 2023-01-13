@@ -3,12 +3,35 @@
  */
 package se.iths;
 
+import java.sql.SQLException;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+    String sampleStudent = "Ellllinor Ekmark";
+
+
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        StudentDAO sDAO = new StudentDAO();
+        Collection<Student> students = new HashSet<>();
+
+        try {
+            students = sDAO.findAll();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        for (Student student : students) {
+            System.out.println(student.toString());
+        }
+
+
     }
+
+
+
+
+
 }

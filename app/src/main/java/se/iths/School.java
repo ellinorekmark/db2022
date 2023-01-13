@@ -2,6 +2,18 @@ package se.iths;
 
 public class School {
     String school;
+    String city;
+    String grade;
+    public School(String school, String city) {
+        this.school = school;
+        this.city = city;
+    }
+
+    public School(String school, String city, String grade) {
+        this.school = school;
+        this.city = city;
+        this.grade = grade;
+    }
 
     public String getSchool() {
         return school;
@@ -27,13 +39,13 @@ public class School {
         this.grade = grade;
     }
 
-    String city;
-    String grade;
-
-    public School(String school, String city) {
-        this.school = school;
-        this.city = city;
+    public String toString(){
+        return getSchool() + " (Grade: "+ getGrade() + ")";
     }
+
+
+
+
 }
 
 
