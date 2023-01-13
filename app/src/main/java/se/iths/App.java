@@ -7,31 +7,37 @@ import java.sql.SQLException;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class App {
     String sampleStudent = "Ellllinor Ekmark";
 
-
-
     public static void main(String[] args) {
         StudentDAO sDAO = new StudentDAO();
         Collection<Student> students = new HashSet<>();
-
+        System.out.println("Hello! Let's start by getting all the students from the database and turning them into objects.");
         try {
             students = sDAO.findAll();
+            System.out.println("\nSuccess! We have a list of all the students. There were "+ students.size() +" students.");
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println("Oops, we were unable to gather all student information: "+ e);
         }
-
         for (Student student : students) {
             System.out.println(student.toString());
         }
 
+        System.out.println("Let's take a look at a random student. We'll need a random number, and hopefully we'll find a student with that Id.");
+        int random = ThreadLocalRandom.current().nextInt(students.size()+1);
+        while(!sDAO.checkIfStudentExists(random)){
+        random--;
+        }
+        System.out.println("Random number: "+ random + " gives the following student: ");
+        Student randomStudent = sDAO.findById(random);
+        System.out.println(randomStudent.toString());
+
+        System.out.println("That was interesting. Now let's add a student! I'll use myself as an example.");
 
     }
-
-
-
 
 
 }
