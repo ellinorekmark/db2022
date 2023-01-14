@@ -77,14 +77,12 @@ please note I have not included the standard setters and getters.
 
 ```mermaid
 classDiagram
+CRUDInterface <|-- StudentDAO
+CRUDInterface <|-- SchoolDAO
+CRUDInterface <|--PhoneNumberDAO
 Student <-- StudentDAO
 School <-- SchoolDAO
 PhoneNumber <-- PhoneNumberDAO
-CRUDInterface <-- StudentDAO
-CRUDInterface <-- SchoolDAO
-CRUDInterface <--PhoneNumberDAO
-
-
 
 class Student {
 Student : int id
