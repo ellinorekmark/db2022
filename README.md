@@ -86,13 +86,51 @@ School <-- SchoolDAO
 PhoneNumber <-- PhoneNumberDAO
 
 
-CRUDInterface {
+class CRUDInterface {
 CRUDInterface : findAll()
 CRUDInterface : findById()
 CRUDInterface : update()
 CRUDInterface : delete()
 }
+class StudentDAO {
+StudentDAO : SchoolDAO
+StudentDAO : PhoneNumberDAO
+StudentDAO : create()
+StudentDAO : checkIfStudentExists()
 
+
+}
+class SchoolDAO {
+SchoolDAO : findByStudentId()
+
+}
+class PhoneNumberDAO {
+PhoneNumberDAO : findByStudentId()
+}
+class Student {
+Student : int id
+Student : String firstName
+Student : String lastName
+Student : Collection<String> hobbies
+Student : Collection<PhoneNumber> numbers
+Student : Collection<School> schools
+Student : addHobby()
+Student : addNumber()
+Student : addSchool()
+}
+
+class School {
+School : String school
+School : String city
+School : String grade
+}
+
+class PhoneNumber {
+PhoneNumber : int phoneId
+PhoneNumber : int studentId
+PhoneNumber : String type
+PhoneNumber : String number
+}
 
 
 ```
