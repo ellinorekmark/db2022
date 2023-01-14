@@ -79,9 +79,7 @@ please note I have not included the standard setters and getters.
 CRUDInterface <|-- StudentDAO
 CRUDInterface <|-- SchoolDAO
 CRUDInterface <|-- PhoneNumberDAO
-Student <-- StudentDAO
-School <-- SchoolDAO
-PhoneNumber <-- PhoneNumberDAO
+
 
 ```
 
