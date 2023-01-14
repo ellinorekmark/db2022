@@ -2,11 +2,18 @@ package se.iths;
 
 public class PhoneNumber {
     final int numberId;
+    int studentId;
     String type;
     String number;
 
     public PhoneNumber(int numberId, String type, String number) {
         this.numberId = numberId;
+        this.type = type;
+        this.number = number;
+    }
+    public PhoneNumber(int numberId, int studentId, String type, String number){
+        this.numberId = numberId;
+        this.studentId = studentId;
         this.type = type;
         this.number = number;
     }
@@ -32,6 +39,6 @@ public class PhoneNumber {
         this.number = number;
     }
     public String toString(){
-        return getNumber() +" ("+ getType() +")";
+        return getNumberId() +":" + getNumber() +" ("+ getType() +")";
     }
 }

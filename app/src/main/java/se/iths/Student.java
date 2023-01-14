@@ -55,7 +55,11 @@ public class Student {
     }
 
     public Collection<School> getSchools() {
-        return schools;
+        if (schools.isEmpty()) {
+            return null;
+        } else {
+            return schools;
+        }
     }
 
     public void setSchools(Collection<School> schools) {
@@ -63,7 +67,11 @@ public class Student {
     }
 
     public Collection<String> getHobbies() {
-        return hobbies;
+        if (hobbies.isEmpty()) {
+            return null;
+        } else {
+            return hobbies;
+        }
     }
 
     public void setHobbies(Collection<String> hobbies) {

@@ -5,7 +5,6 @@ package se.iths;
 
 import java.sql.SQLException;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -22,9 +21,7 @@ public class App {
         } catch (SQLException e) {
             System.out.println("Oops, we were unable to gather all student information: "+ e);
         }
-        for (Student student : students) {
-            System.out.println(student.toString());
-        }
+
 
 
         int random = ThreadLocalRandom.current().nextInt(students.size()+1);
@@ -46,7 +43,7 @@ public class App {
         }
 
         if (newStudent!=null){
-            System.out.println("Student added! \n\n"+ newStudent.toString());
+            System.out.println("Student added! \n\n"+ newStudent);
             System.out.println("\n- Wait a minute, that's not how you spell my name. We'll need to fix that. -\n");
 
             newStudent.setFirstName("Ellinor");
@@ -57,14 +54,12 @@ public class App {
             }
             System.out.println(newStudent.toString());
             System.out.println("\n- There, that's better! -");
-        }
 
-        System.out.println("\n- Well, that was fun. Let's delete myself from the database now. -\n");
+            System.out.println("\n- Well, that was fun. Let's delete myself from the database now. -\n");
 
-        if(sDAO.delete(newStudent)){
-            System.out.println("Student successfully deleted.");
+            if(sDAO.delete(newStudent)){
+                System.out.println("Student successfully deleted.");
+            }
         }
     }
-
-
 }

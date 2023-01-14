@@ -14,14 +14,12 @@ public class StudentDAO implements CRUDInterface<Student> {
     @Override
     public Collection<Student> findAll() throws SQLException {
         Collection<Student> students = new HashSet<>();
-
         Connection con = DriverManager.getConnection(JDBC_CONNECTION_ITHS, JDBC_USER, JDBC_PASSWORD);
         ResultSet result = con.createStatement().executeQuery(SQL_ALL_STUDENTS);
 
         while (result.next()) {
             students.add(new Student(result.getInt("StudentId"), result.getString("FirstName"), result.getString("LastName")));
         }
-
         PreparedStatement statement = con.prepareStatement(SQL_STUDENT_HOBBIES);
         for (Student student : students) {
             statement.setLong(1, student.getId());
@@ -64,12 +62,9 @@ public class StudentDAO implements CRUDInterface<Student> {
                 student.setSchools(schoolDAO.findByStudentId(student.getId()));
                 student.setNumbers(phoneDAO.findByStudentId(student.getId()));
             }
-
         } catch (SQLException e) {
             System.out.println("Something went wrong getting the specified student: " + e);
         }
-
-
         return student;
     }
 
@@ -100,12 +95,6 @@ public class StudentDAO implements CRUDInterface<Student> {
         return student;
 
     }
-
-    @Override
-    public Student create(Student object) {
-        return null;
-    }
-
     @Override
     public Student update(Student student) throws SQLException {
         int id = student.getId();
@@ -119,7 +108,6 @@ public class StudentDAO implements CRUDInterface<Student> {
                 statement.setString(1, student.getFirstName());
                 statement.setLong(2, student.getId());
                 statement.execute();
-
             }
 
             /*
@@ -159,14 +147,12 @@ public class StudentDAO implements CRUDInterface<Student> {
         }
         return exists;
     }
-
     @Override
     public boolean delete(Student student) {
         Boolean success = false;
         Connection con = null;
         try {
             con = DriverManager.getConnection(JDBC_CONNECTION_ITHS, JDBC_USER, JDBC_PASSWORD);
-
             PreparedStatement statement = con.prepareStatement(SQL_DELETE_STUDENT_STUDENT);
             statement.setLong(1, student.getId());
             statement.execute();
@@ -189,19 +175,15 @@ public class StudentDAO implements CRUDInterface<Student> {
                 statement.execute();
             }
             success = true;
-
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             success = false;
-            System.out.println("Unable to delete student completely: "+e);
-        }
-        finally {
+            System.out.println("Unable to delete student completely: " + e);
+        } finally {
             try {
                 con.close();
-            } catch (SQLException ignore) {}
+            } catch (SQLException ignore) {
+            }
         }
-
-
         return success;
     }
 }

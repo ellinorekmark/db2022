@@ -5,12 +5,11 @@ import java.util.Collection;
 
 public interface CRUDInterface<T> {
 
-    public Collection<T> findAll() throws SQLException;
+    Collection<T> findAll() throws SQLException;
 
-    public T findById(int id) throws SQLException;
-    public T create(T object);
+    T findById(int id) throws SQLException;
 
-    public T update(T object) throws SQLException;
+    T update(T object) throws SQLException;
 
-    public boolean delete(T object) ;
+    boolean delete(T object) ;
 }
