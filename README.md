@@ -79,7 +79,7 @@ please note I have not included the standard setters and getters.
 classDiagram
 CRUDInterface <|-- StudentDAO
 CRUDInterface <|-- SchoolDAO
-CRUDInterface <|--PhoneNumberDAO
+CRUDInterface <|-- PhoneNumberDAO
 
 
 class Student {
