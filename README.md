@@ -73,6 +73,33 @@ erDiagram
 
 ```
 
+```mermaid
+classDiagram
+Student <-- School
+Student <-- PhoneNumber
+
+class Student {
+Student : int id
+Student : String firstName
+Student : String lastName
+Student : Collection<String> hobbies
+Student : Collection<PhoneNumber> numbers
+Student : Collection<School> schools
+Student : getId()
+Student : getFirstName()
+Student : getLastName()
+}
+
+class School {
+School : String school
+School : String city
+School : String grade
+}
+
+
+
+```
+
 
 ## Normalisering
 
