@@ -72,11 +72,21 @@ erDiagram
     }
 
 ```
+## UML class diagram
+please note I have not included the standard setters and getters.
 
 ```mermaid
 classDiagram
 Student <-- School
 Student <-- PhoneNumber
+Student <-- StudentDAO
+School <-- SchoolDAO
+PhoneNumber <-- PhoneNumberDAO
+CRUDInterface <|-- StudentDAO
+CRUDInterface <|-- SchoolDAO
+CRUDInterface <|--PhoneNumberDAO
+
+
 
 class Student {
 Student : int id
@@ -85,9 +95,9 @@ Student : String lastName
 Student : Collection<String> hobbies
 Student : Collection<PhoneNumber> numbers
 Student : Collection<School> schools
-Student : getId()
-Student : getFirstName()
-Student : getLastName()
+Student : addHobby()
+Student : addNumber()
+Student : addSchool()
 }
 
 class School {
@@ -96,6 +106,35 @@ School : String city
 School : String grade
 }
 
+class PhoneNumber {
+PhoneNumber : int phoneId
+PhoneNumber : int studentId
+PhoneNumber : String type
+PhoneNumber : String number
+}
+
+CRUDInterface {
+CRUDInterface : findAll()
+CRUDInterface : findById()
+CRUDInterface : update()
+CRUDInterface : delete()
+}
+
+StudentDAO {
+StudentDAO : SchoolDAO
+StudentDAO : PhoneNumberDAO
+StudentDAO : create()
+StudentDAO : checkIfStudentExists()
+
+
+}
+SchoolDAO {
+SchoolDAO : findByStudentId()
+
+}
+PhoneNumberDAO {
+PhoneNumberDAO : findByStudentId()
+}
 
 
 ```
