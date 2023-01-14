@@ -76,9 +76,13 @@ erDiagram
 please note I have not included the standard setters and getters.
 
 ```mermaid
+classDiagram
+
 CRUDInterface <|-- StudentDAO
 CRUDInterface <|-- SchoolDAO
 CRUDInterface <|-- PhoneNumberDAO
+
+
 
 
 ```
