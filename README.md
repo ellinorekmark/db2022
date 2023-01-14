@@ -76,60 +76,12 @@ erDiagram
 please note I have not included the standard setters and getters.
 
 ```mermaid
-classDiagram
 CRUDInterface <|-- StudentDAO
 CRUDInterface <|-- SchoolDAO
 CRUDInterface <|-- PhoneNumberDAO
-
-
-class Student {
-Student : int id
-Student : String firstName
-Student : String lastName
-Student : Collection<String> hobbies
-Student : Collection<PhoneNumber> numbers
-Student : Collection<School> schools
-Student : addHobby()
-Student : addNumber()
-Student : addSchool()
-}
-
-class School {
-School : String school
-School : String city
-School : String grade
-}
-
-class PhoneNumber {
-PhoneNumber : int phoneId
-PhoneNumber : int studentId
-PhoneNumber : String type
-PhoneNumber : String number
-}
-
-CRUDInterface {
-CRUDInterface : findAll()
-CRUDInterface : findById()
-CRUDInterface : update()
-CRUDInterface : delete()
-}
-
-StudentDAO {
-StudentDAO : SchoolDAO
-StudentDAO : PhoneNumberDAO
-StudentDAO : create()
-StudentDAO : checkIfStudentExists()
-
-
-}
-SchoolDAO {
-SchoolDAO : findByStudentId()
-
-}
-PhoneNumberDAO {
-PhoneNumberDAO : findByStudentId()
-}
-
+Student <-- StudentDAO
+School <-- SchoolDAO
+PhoneNumber <-- PhoneNumberDAO
 
 ```
 
