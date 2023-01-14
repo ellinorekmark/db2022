@@ -80,9 +80,7 @@ classDiagram
 CRUDInterface <|-- StudentDAO
 CRUDInterface <|-- SchoolDAO
 CRUDInterface <|--PhoneNumberDAO
-Student <-- StudentDAO
-School <-- SchoolDAO
-PhoneNumber <-- PhoneNumberDAO
+
 
 class Student {
 Student : int id
