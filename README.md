@@ -86,6 +86,13 @@ School <-- SchoolDAO
 PhoneNumber <-- PhoneNumberDAO
 
 
+CRUDInterface {
+CRUDInterface : findAll()
+CRUDInterface : findById()
+CRUDInterface : update()
+CRUDInterface : delete()
+}
+
 
 
 ```
