@@ -84,6 +84,8 @@ CRUDInterface <|-- PhoneNumberDAO
 Student <-- StudentDAO
 School <-- SchoolDAO
 PhoneNumber <-- PhoneNumberDAO
+StudentDAO <-- PhoneNumberDAO
+StudentDAO <-- SchoolDAO
 
 
 class CRUDInterface {
