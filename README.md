@@ -77,8 +77,6 @@ please note I have not included the standard setters and getters.
 
 ```mermaid
 classDiagram
-Student <-- School
-Student <-- PhoneNumber
 Student <-- StudentDAO
 School <-- SchoolDAO
 PhoneNumber <-- PhoneNumberDAO
