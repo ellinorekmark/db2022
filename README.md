@@ -82,9 +82,9 @@ Student <-- PhoneNumber
 Student <-- StudentDAO
 School <-- SchoolDAO
 PhoneNumber <-- PhoneNumberDAO
-CRUDInterface <|-- StudentDAO
-CRUDInterface <|-- SchoolDAO
-CRUDInterface <|--PhoneNumberDAO
+CRUDInterface <-- StudentDAO
+CRUDInterface <-- SchoolDAO
+CRUDInterface <--PhoneNumberDAO
 
 
 
